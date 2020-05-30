@@ -1,4 +1,4 @@
-# Apaffenholz Polymake
+# homebrew tap polymake
 
 ## How do I install these formulae?
 `brew install apaffenholz/polymake/<formula>`
