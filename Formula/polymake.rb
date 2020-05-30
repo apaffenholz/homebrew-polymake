@@ -25,10 +25,8 @@ class Polymake < Formula
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
-
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
+    
     ENV.prepend_create_path "PERL5LIB", libexec/"perl5/lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"perl5/lib/perl5/darwin-thread-multi-2level"
 
@@ -59,7 +57,8 @@ class Polymake < Formula
 
   test do
     assert_match "1 23 23 1", shell_output("#{bin}/polymake 'print cube(3)->H_STAR_VECTOR'")
-    assert_match "", shell_output("LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1")
-    assert_match /^polymake:  WARNING: Recompiling in .* please be patient\.\.\.$/, shell_output("LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1")
+    command = "LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1"
+    assert_match "", shell_output(command)
+    assert_match /^polymake:  WARNING: Recompiling in .* please be patient\.\.\.$/, shell_output(command)
   end
 end
