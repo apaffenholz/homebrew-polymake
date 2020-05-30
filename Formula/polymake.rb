@@ -59,7 +59,7 @@ class Polymake < Formula
 
   test do
     assert_match "1 23 23 1", shell_output("#{bin}/polymake 'print cube(3)->H_STAR_VECTOR'")
-    assert_match "", shell_output("#{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1")
-    assert_match /^polymake:  WARNING: Recompiling in .* please be patient\.\.\.$/, shell_output("#{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1")
+    assert_match "", shell_output("LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1")
+    assert_match /^polymake:  WARNING: Recompiling in .* please be patient\.\.\.$/, shell_output("LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1")
   end
 end
