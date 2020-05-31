@@ -4,6 +4,11 @@ class Polymake < Formula
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.0r1.tar.bz2"
   sha256 "06654c5b213e74d7ff521a4f52e446f46a54e52e7da795396b79dd8beead3000"
 
+  bottle do
+    root_url "https://bintray.com/apaffenholz/bottles-polymake"
+    sha256 "e8e8f1f1f2fa651e61c768c2dd8208a39cef31f5b9b35cb881a8244b7ff2f83c" => :mojave
+  end
+
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
