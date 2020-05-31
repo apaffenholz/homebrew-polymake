@@ -5,6 +5,13 @@ class Polymake < Formula
   version "4.0r1"
   sha256 "06654c5b213e74d7ff521a4f52e446f46a54e52e7da795396b79dd8beead3000"
 
+  bottle do
+    root_url "https://bintray.com/apaffenholz/bottles-polymake"
+    sha256 "98f7d9a186590dc9795070cc2961c38a477e186b5956ada863b5a425f3fe3359" => :catalina
+    sha256 "6f0b011fbc0615b2f7cfab38323d41df4e8957853d85f64cdae06a098e803e29" => :mojave
+    sha256 "9d1bb673ba6a5be40f46324f782f4827d2e429a7e7a7058ee9696e064eae513d" => :high_sierra
+  end
+
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
