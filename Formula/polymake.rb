@@ -2,7 +2,7 @@ class Polymake < Formula
   desc "Tool for computations in algorithmic discrete geometry"
   homepage "https://polymake.org/"
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.0r1.tar.bz2"
-  version "4.0r1"
+  version "4.0r1_1"
   revision 1
   sha256 "06654c5b213e74d7ff521a4f52e446f46a54e52e7da795396b79dd8beead3000"
 
