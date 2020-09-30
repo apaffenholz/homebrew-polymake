@@ -5,6 +5,7 @@ class Polymake < Formula
   sha256 "d25994a8723570eff4c9fee2a0af322fda0c80dbad640316dfc48449528d0b9c"
 
   depends_on "boost"
+  depends_on "flint"
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ninja"
@@ -560,7 +561,7 @@ class Polymake < Formula
                           "--without-soplex"
 
     system "ninja", "-C", "build/Opt", "install"
-    bin.env_script_all_files(libexec/"perl5/bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"perl5/bin", { PERL5LIB: ENV["PERL5LIB"] })
   end
 
   test do
