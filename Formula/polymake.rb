@@ -2,7 +2,6 @@ class Polymake < Formula
   desc "Tool for computations in algorithmic discrete geometry"
   homepage "https://polymake.org/"
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.2.tar.bz2"
-  version "4.2"
   sha256 "d25994a8723570eff4c9fee2a0af322fda0c80dbad640316dfc48449528d0b9c"
 
   depends_on "boost"
@@ -561,7 +560,7 @@ class Polymake < Formula
                           "--without-soplex"
 
     system "ninja", "-C", "build/Opt", "install"
-    bin.env_script_all_files(libexec/"perl5/bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"perl5/bin", PERL5LIB : ENV["PERL5LIB"])
   end
 
   test do
