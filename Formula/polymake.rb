@@ -1,17 +1,9 @@
 class Polymake < Formula
   desc "Tool for computations in algorithmic discrete geometry"
   homepage "https://polymake.org/"
-  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.0r1.tar.bz2"
-  version "4.0r1"
-  sha256 "06654c5b213e74d7ff521a4f52e446f46a54e52e7da795396b79dd8beead3000"
-
-  bottle do
-    root_url "https://dl.bintray.com/apaffenholz/bottles-polymake"
-    rebuild 1
-    sha256 "df6a7f7cc38e09ebe4c871222c277cc248333f0c5e0ea53d8f7d579612b22a48" => :catalina
-    sha256 "da01f89e9073b97e4a42bb0676606acff3670d748bec9d0b50affefc732a4e58" => :mojave
-    sha256 "3241b5bd01f514e5d52a267c5c0031aee68018c9bed4eae916ed2a7ef69a08d4" => :high_sierra
-  end
+  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.2.tar.bz2"
+  version "4.2"
+  sha256 "d25994a8723570eff4c9fee2a0af322fda0c80dbad640316dfc48449528d0b9c"
 
   depends_on "boost"
   depends_on "gmp"
