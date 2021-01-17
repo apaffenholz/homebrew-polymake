@@ -16,6 +16,7 @@ class Polymake < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ninja"
+  depends_on "openssl@1.1" if MacOS.version == :amd64_big_sur
   depends_on "perl" if MacOS.version == :big_sur || MacOS.version == :catalina
   depends_on "ppl"
   depends_on "readline"
@@ -591,7 +592,11 @@ class Polymake < Formula
           system "./Build", "test"
           system "./Build", "install"
         when "Net::SSLeay" 
-          system "yes 'n' | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
+          if MacOS.version == :amd64_big_sur
+            system "yes 'n' | OPENSSL_PREFIX=#{Formula["openssl@1.1"].opt_prefix} perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
+          else
+            system "yes 'n' | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
+          end
           system "make", "install"
         when "XML::SAX" 
           system "yes | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
