@@ -623,6 +623,19 @@ class Polymake < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      Note: This version comes without support for SVG export. 
+      
+      If you had any other version of polymake installed on your Mac 
+      (both previous versions installed via Homebrew or any other installations) 
+      you must start polymake once with 
+      "polymake --reconfigure"
+      to remove the configuration of SVG support from your local
+      polymake setup. Afterwards you can use "polymake" as usual. 
+    EOS
+  end
+
   test do
     assert_match "1 23 23 1", shell_output("#{bin}/polymake 'print cube(3)->H_STAR_VECTOR'")
     command = "LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1"
