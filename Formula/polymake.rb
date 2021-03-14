@@ -3,13 +3,7 @@ class Polymake < Formula
   homepage "https://polymake.org/"
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.3.tar.bz2"
   sha256 "76aeaecc84bb9fad83041800181a20a2867340a23e9697b043d7cd81c79e6f95"
-
-  bottle do
-    root_url "https://dl.bintray.com/apaffenholz/bottles-polymake"
-    sha256 "a4a77e49fbb27fbf2e3dd6542111c9ac2bda3bb8033bfc4d8615ed26b17649a2" => :big_sur
-    sha256 "96a2c18b61debe738716856d32fba72c09ab04a4d5c0dd4f0bb4d96ca4c3ffcb" => :catalina
-    sha256 "4961c1c6afe740a5f5b763cfc179678a7421211fd8cae8543e218f2f7895d921" => :mojave
-  end
+  revision 1
 
   depends_on "boost"
   depends_on "flint"
