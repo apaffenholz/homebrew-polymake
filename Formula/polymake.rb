@@ -584,10 +584,10 @@ class Polymake < Formula
           system "./Build"
           system "./Build", "test"
           system "./Build", "install"
-        when "Net::SSLeay" 
+        when "Net::SSLeay"
           system "yes 'n' | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
           system "make", "install"
-        when "XML::SAX" 
+        when "XML::SAX"
           system "yes | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
           system "make", "install"
         else
@@ -606,7 +606,7 @@ class Polymake < Formula
 
     system "ninja", "-C", "build/Opt", "install"
     bin.env_script_all_files(libexec/"perl5/bin", PERL5LIB: ENV["PERL5LIB"])
-    
+
     resource("Term::ReadLine::Gnu").stage do
       # Prevent the Makefile to try and build universal binaries
       ENV.refurbish_args
@@ -619,14 +619,14 @@ class Polymake < Formula
 
   def caveats
     <<~EOS
-      Note: This version comes without support for SVG export. 
-      
-      If you had any other version of polymake installed on your Mac 
-      (both previous versions installed via Homebrew or any other installations) 
-      you must start polymake once with 
+      Note: This version comes without support for SVG export.
+
+      If you had any other version of polymake installed on your Mac
+      (both previous versions installed via Homebrew or any other installations)
+      you must start polymake once with
       "polymake --reconfigure"
       to remove the configuration of SVG support from your local
-      polymake setup. Afterwards you can use "polymake" as usual. 
+      polymake setup. Afterwards you can use "polymake" as usual.
     EOS
   end
 
@@ -634,6 +634,6 @@ class Polymake < Formula
     assert_match "1 23 23 1", shell_output("#{bin}/polymake 'print cube(3)->H_STAR_VECTOR'")
     command = "LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1"
     assert_match "", shell_output(command)
-    assert_match /^polymake:  WARNING: Recompiling in .* please be patient\.\.\.$/, shell_output(command)
+    assert_match(/^polymake:  WARNING: Recompiling in .* please be patient\.\.\.$/, shell_output(command))
   end
 end
