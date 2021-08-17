@@ -3,7 +3,6 @@ class Polymake < Formula
   homepage "https://polymake.org/"
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.4.tar.bz2"
   sha256 "f4e9a3fe101bc8735c1531389bc2e7e364381ebdea22ee93c5a4e836ac6f6961"
-  revision 1
 
   depends_on "boost"
   depends_on "flint"
