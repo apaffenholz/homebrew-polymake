@@ -6,7 +6,7 @@ class Polymake < Formula
 
   bottle do
     root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.4"
-    sha256 big_sur:  "78b65a567dfe73d0c9777d533f9c762b08c914e48c8bcbfdc4522e66aa69fec9"
+    sha256 big_sur:  "e4f4a481e9ff21bbcab37c390a4aba37c58e879611e5af57f13c822763e06dcd"
     sha256 catalina: "65fc0c81982036adc3e3356e8879125067fef6ea6743ce0ceef503510c4eaa9d"
     sha256 mojave:   "2faba3aec7d9709a485765f3aa304d89f13739e2d0bf617c92d0dd38c00785d5"
   end
