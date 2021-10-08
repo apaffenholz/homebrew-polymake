@@ -4,11 +4,6 @@ class Polymake < Formula
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.5.tar.bz2"
   sha256 "9dbfba0e0e15f86d686e315a14f6e4eb0f3580a282806284f4eabad8cb8e2b33"
 
-  bottle do
-    root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.5"
-    sha256 big_sur: "29732f96b60f817a5c4f9c909a2229cf0efbfeab019b161f640ac1e9d91fc92b"
-  end
-
   depends_on "boost"
   depends_on "flint"
   depends_on "gmp"
