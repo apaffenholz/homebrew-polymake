@@ -1,14 +1,13 @@
 class Polymake < Formula
   desc "Tool for computations in algorithmic discrete geometry"
   homepage "https://polymake.org/"
-  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.5.tar.bz2"
-  sha256 "9dbfba0e0e15f86d686e315a14f6e4eb0f3580a282806284f4eabad8cb8e2b33"
+  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.6.tar.bz2"
+  sha256 "3232cd1bc6cbc50b3de3dd8293bc6fdcac4be6c3c6120337427358754d8a10b7"
 
   bottle do
-    root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.5"
-    sha256 big_sur:  "6fa53284c2d1580dd458e4eda674eee02adf91baeb687ea9f18a445428563ace"
-    sha256 catalina: "4d3ee795f4e2b52b1af761266e5565e3af7346ea08f13ace332ad18c709d5570"
-    sha256 mojave:   "d9454da34d59b6dcf137b3bf5ac90e5ef5ed879913722de4a7c19a6d6a38ec2d"
+    root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.6"
+    sha256 big_sur:  "9f552fb3b309cc331d7463c4d2c4e80262b492db5e368a977e01387d59394805"
+    sha256 catalina: "b4c9c2401143237269246114827c08fb99f386029142908263e32b39c8a657b5"
   end
 
   depends_on "boost"
@@ -624,9 +623,8 @@ class Polymake < Formula
     <<~EOS
       Note: This version comes without support for SVG export.
 
-      If you had any other version of polymake installed on your Mac
-      (both previous versions installed via Homebrew or any other installations)
-      you must start polymake once with
+      If you had previously insalled polymake from another source,
+      then you must start polymake once with
       "polymake --reconfigure"
       to remove the configuration of SVG support from your local
       polymake setup. Afterwards you can use "polymake" as usual.
@@ -635,7 +633,7 @@ class Polymake < Formula
 
   test do
     assert_match "1 23 23 1", shell_output("#{bin}/polymake 'print cube(3)->H_STAR_VECTOR'")
-    command = "LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1"
+    command = "LIBRARY_PATH=#{HOMEBREW_PREFIX}/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1"
     assert_match "", shell_output(command)
     assert_match(/^polymake:  WARNING: Recompiling in .* please be patient\.\.\.$/, shell_output(command))
   end
