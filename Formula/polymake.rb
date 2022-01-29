@@ -16,7 +16,7 @@ class Polymake < Formula
   depends_on "mpfr"
   depends_on "ninja"
   depends_on "openssl@1.1"
-  depends_on "perl" if MacOS.version == :big_sur || MacOS.version == :catalina
+  depends_on "perl" if MacOS.version == :big_sur || MacOS.version == :catalina || MacOS.version == :monterey
   depends_on "ppl"
   depends_on "readline"
 
