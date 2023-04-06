@@ -1,14 +1,8 @@
 class Polymake < Formula
   desc "Tool for computations in algorithmic discrete geometry"
   homepage "https://polymake.org/"
-  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.6.tar.bz2"
-  sha256 "3232cd1bc6cbc50b3de3dd8293bc6fdcac4be6c3c6120337427358754d8a10b7"
-
-  bottle do
-    root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.6"
-    sha256 big_sur:  "9f552fb3b309cc331d7463c4d2c4e80262b492db5e368a977e01387d59394805"
-    sha256 catalina: "b4c9c2401143237269246114827c08fb99f386029142908263e32b39c8a657b5"
-  end
+  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.9.tar.bz2"
+  sha256 "bc7335bfca7a3e687b7961b052418ace0e4295f99a86c6cf4832bc2a51b0deea"
 
   depends_on "boost"
   depends_on "flint"
@@ -16,13 +10,13 @@ class Polymake < Formula
   depends_on "mpfr"
   depends_on "ninja"
   depends_on "openssl@1.1"
-  depends_on "perl" if MacOS.version == :big_sur || MacOS.version == :catalina || MacOS.version == :monterey
+  depends_on "perl" if MacOS.version == :big_sur || MacOS.version == :ventura || MacOS.version == :monterey
   depends_on "ppl"
   depends_on "readline"
 
   resource "Scalar::Util" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.59.tar.gz"
-    sha256 "7a5a66d14e3790e4532347bfdd7c46ec6db3363b15c4bcc5c2f9d83c81ef1b0f"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.63.tar.gz"
+    sha256 "cafbdf212f6827dc9a0dd3b57b6ee50e860586d7198228a33262d55c559eb2a9"
   end
 
   resource "File::Path" do
@@ -31,8 +25,8 @@ class Polymake < Formula
   end
 
   resource "IO::Handle" do
-    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/IO-1.48.tar.gz"
-    sha256 "c271b518e28ba9bc95bc0824b689db8e35006219eb2c03f1ec395bd089253658"
+    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/IO-1.51.tar.gz"
+    sha256 "5493ea55998728cd2b7ecb8234c58fb5d5df27098d0f07addca22444d7616ce0"
   end
 
   resource "constant" do
@@ -41,8 +35,8 @@ class Polymake < Formula
   end
 
   resource "parent" do
-    url "https://cpan.metacpan.org/authors/id/C/CO/CORION/parent-0.238.tar.gz"
-    sha256 "38f58fdef3e28a194c9c8d0dc5d02672faf93c069f40c5bcb1fabeadbbc4d2d1"
+    url "https://cpan.metacpan.org/authors/id/C/CO/CORION/parent-0.241.tar.gz"
+    sha256 "b10b3960ab3997dab7571ffe975ba462d979d086450740a1e08b3959e75128fe"
   end
 
   resource "XSLoader" do
@@ -66,13 +60,13 @@ class Polymake < Formula
   end
 
   resource "Test::More" do
-    url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302188.tar.gz"
-    sha256 "0b7a0e304ca24d657d79b73c9ff3f381dc460f356e4044de326ed03ddab16c95"
+    url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302194.tar.gz"
+    sha256 "23d4965eb32504c8c7670563ce784ce5dc043c2572d771ce4a584558d6869f48"
   end
 
   resource "Test::Harness" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
-    sha256 "0fd90d4efea82d6e262e6933759e85d27cbcfa4091b14bf4042ae20bab528e53"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.44.tar.gz"
+    sha256 "7eb591ea6b499ece6745ff3e80e60cee669f0037f9ccbc4e4511425f593e5297"
   end
 
   resource "Carp" do
@@ -101,8 +95,8 @@ class Polymake < Formula
   end
 
   resource "Exporter" do
-    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/Exporter-5.74.tar.gz"
-    sha256 "eadb889ef673ad940da6aa4f6f7d75fc1e625ae786ae3533fd313eaf629945b8"
+    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/Exporter-5.77.tar.gz"
+    sha256 "3892ee5c6ae6e482068d53b61e25cae4fc71ddc79cc47446e385df0a669bb8ed"
   end
 
   resource "Pod::Simple" do
@@ -116,18 +110,18 @@ class Polymake < Formula
   end
 
   resource "Encode" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DANKOGAI/Encode-3.13.tar.gz"
-    sha256 "1ddc064114ed6b33ce370f60925f51023faa3cba2327f0f54f039c28a06b81d2"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DANKOGAI/Encode-3.19.tar.gz"
+    sha256 "9163f848eef69e4d4cc8838397f0861fd9ea7ede001117dbd9694f8d95052ef5"
   end
 
   resource "Pod::Man" do
-    url "https://cpan.metacpan.org/authors/id/R/RR/RRA/podlators-4.14.tar.gz"
-    sha256 "7af1c41de34b2e4dbff700a29d7387549c2b6cf16142214450c924707ddb0f82"
+    url "https://cpan.metacpan.org/authors/id/R/RR/RRA/podlators-5.01.tar.gz"
+    sha256 "ccfd1df9f1a47f095bce6d718fad5af40f78ce2491f2c7239626e15b7020bc71"
   end
 
   resource "ExtUtils::MakeMaker" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.62.tar.gz"
-    sha256 "5022ad857fd76bd3f6b16af099fe2324639d9932e08f21e891fb313d9cae1705"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.70.tar.gz"
+    sha256 "f108bd46420d2f00d242825f865b0f68851084924924f92261d684c49e3e7a74"
   end
 
   resource "Term::ReadKey" do
@@ -151,13 +145,18 @@ class Polymake < Formula
   end
 
   resource "JSON" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.03.tar.gz"
-    sha256 "e41f8761a5e7b9b27af26fe5780d44550d7a6a66bf3078e337d676d07a699941"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz"
+    sha256 "df8b5143d9a7de99c47b55f1a170bd1f69f711935c186a6dc0ab56dd05758e35"
+  end
+
+  resource "base" do
+    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/base-2.23.tar.gz"
+    sha256 "40f55841299a9fe6fab03cd098f94e9221fb516978e9ef40fd8ff2cbd6625dde"
   end
 
   resource "Module::CoreList" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Module-CoreList-5.20210920.tar.gz"
-    sha256 "0aa598f5c0a2f4aa594e4c9f62356545badf0f2a63e1713eecaf9d04f55c07b7"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Module-CoreList-5.20230320.tar.gz"
+    sha256 "324a28f755bd10abc26e0e8b6564ae2623276ae99cbb28ee09ced647fa80f87b"
   end
 
   resource "Module::Load" do
@@ -181,8 +180,13 @@ class Polymake < Formula
   end
 
   resource "JSON::PP" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-PP-4.06.tar.gz"
-    sha256 "70c4ca2e05dc156de2303765174e45b91c637de6601a70db5eef45e30abad27a"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-PP-4.16.tar.gz"
+    sha256 "8bc2f162bafc42645c489905ad72540f0d3c284b360c96299095183c30cc9789"
+  end
+
+  resource "lib" do
+    url "https://cpan.metacpan.org/authors/id/S/SM/SMUELLER/lib-0.63.tar.gz"
+    sha256 "72f63db9220098e834d7a38231626bd0c9b802c1ec54a628e2df35f3818e5a00"
   end
 
   resource "Locale::Maketext::Simple" do
@@ -198,6 +202,21 @@ class Polymake < Formula
   resource "Pod::Perldoc" do
     url "https://cpan.metacpan.org/authors/id/M/MA/MALLEN/Pod-Perldoc-3.28.tar.gz"
     sha256 "cc41e605b8e13c40a8ee6504ff46347b5ba7fbd92203b3bb055422051befc64d"
+  end
+
+  resource "Module::Runtime" do
+    url "https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
+    sha256 "68302ec646833547d410be28e09676db75006f4aa58a11f3bdb44ffe99f0f024"
+  end
+
+  resource "Test::Requires" do
+    url "https://cpan.metacpan.org/authors/id/T/TO/TOKUHIROM/Test-Requires-0.11.tar.gz"
+    sha256 "4b88de549597eecddf7c3c38a4d0204a16f59ad804577b671896ac04e24e040f"
+  end
+
+  resource "Env" do
+    url "https://cpan.metacpan.org/authors/id/F/FL/FLORA/Env-1.04.tar.gz"
+    sha256 "d94a3d412df246afdc31a2199cbd8ae915167a3f4684f7b7014ce1200251ebb0"
   end
 
   resource "CPAN::Meta::Requirements" do
@@ -221,98 +240,13 @@ class Polymake < Formula
   end
 
   resource "Text::ParseWords" do
-    url "https://cpan.metacpan.org/authors/id/C/CH/CHORNY/Text-ParseWords-3.30.tar.gz"
-    sha256 "85e0238179dd43997e58c66bd51611182bc7d533505029a2db0d3232edaff5e8"
+    url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Text-ParseWords-3.31.tar.gz"
+    sha256 "2ae555ba084d75b2b8feeeb8d1a00911276815ada86bccb1452236964d5a2fc7"
   end
 
   resource "Pod::Usage" do
-    url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Pod-Usage-2.01.tar.gz"
-    sha256 "d6d28ff686c9761874321c3dc22cae39f3fb0a39d64fb140c694eef74d468152"
-  end
-
-  resource "CPAN::Meta" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/CPAN-Meta-2.150010.tar.gz"
-    sha256 "e4f80f2ec73e0741455f957bbfc992b167ecbfa1c9e23ba358df3b37b86ba3d6"
-  end
-
-  resource "ExtUtils::CBuilder" do
-    url "https://cpan.metacpan.org/authors/id/A/AM/AMBS/ExtUtils-CBuilder-0.280236.tar.gz"
-    sha256 "abc21827eb8a513171bf7fdecefce9945132cb76db945036518291f607b1491f"
-  end
-
-  resource "ExtUtils::Install" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-Install-2.20.tar.gz"
-    sha256 "a4a1f1c5ab94b0a10ad81e037d5a2277fb55224760ac9013b8e196cedc829148"
-  end
-
-  resource "ExtUtils::Manifest" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/ExtUtils-Manifest-1.73.tar.gz"
-    sha256 "dc5c063dac0b1ad64fa43cda3a51ee66e1952be8da495ddb34b82f9db88fbaf8"
-  end
-
-  resource "ExtUtils::ParseXS" do
-    url "https://cpan.metacpan.org/authors/id/S/SM/SMUELLER/ExtUtils-ParseXS-3.35.tar.gz"
-    sha256 "41def0511278a2a8ba9afa25ccab45b0453f75e7fd774e8644b5f9a57cc4ee1c"
-  end
-
-  resource "Getopt::Long" do
-    url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.52.tar.gz"
-    sha256 "9dc7a7c373353d5c05efae548e7b123aa8a31d1f506eb8dbbec8f0dca77705fa"
-  end
-
-  resource "Text::Abbrev" do
-    url "https://cpan.metacpan.org/authors/id/F/FL/FLORA/Text-Abbrev-1.02.tar.gz"
-    sha256 "9cfb8bea2d5806b72fa1a0e1a3367ce662262eaa2701c6a3143a2a8076917433"
-  end
-
-  resource "Module::Build" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
-    sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
-  end
-
-  resource "Try::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz"
-    sha256 "da5bd0d5c903519bbf10bb9ba0cb7bcac0563882bcfe4503aee3fb143eddef6b"
-  end
-
-  resource "Module::Runtime" do
-    url "https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
-    sha256 "68302ec646833547d410be28e09676db75006f4aa58a11f3bdb44ffe99f0f024"
-  end
-
-  resource "Test::Requires" do
-    url "https://cpan.metacpan.org/authors/id/T/TO/TOKUHIROM/Test-Requires-0.11.tar.gz"
-    sha256 "4b88de549597eecddf7c3c38a4d0204a16f59ad804577b671896ac04e24e040f"
-  end
-
-  resource "Env" do
-    url "https://cpan.metacpan.org/authors/id/F/FL/FLORA/Env-1.04.tar.gz"
-    sha256 "d94a3d412df246afdc31a2199cbd8ae915167a3f4684f7b7014ce1200251ebb0"
-  end
-
-  resource "Test::Deep" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.130.tar.gz"
-    sha256 "4064f494f5f62587d0ae501ca439105821ee5846c687dc6503233f55300a7c56"
-  end
-
-  resource "Test::Fatal" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.016.tar.gz"
-    sha256 "7283d430f2ba2030b8cd979ae3039d3f1b2ec3dde1a11ca6ae09f992a66f788f"
-  end
-
-  resource "Test::Needs" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002009.tar.gz"
-    sha256 "571c21193ad16195df58b06b268798796a391b398c443271721d2cc0fb7c4ac3"
-  end
-
-  resource "base" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/base-2.23.tar.gz"
-    sha256 "40f55841299a9fe6fab03cd098f94e9221fb516978e9ef40fd8ff2cbd6625dde"
-  end
-
-  resource "lib" do
-    url "https://cpan.metacpan.org/authors/id/S/SM/SMUELLER/lib-0.63.tar.gz"
-    sha256 "72f63db9220098e834d7a38231626bd0c9b802c1ec54a628e2df35f3818e5a00"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Usage-2.03.tar.gz"
+    sha256 "7d8fdc7dce60087b6cf9e493b8d6ae84a5ab4c0608a806a6d395cc6557460744"
   end
 
   resource "Module::Implementation" do
@@ -326,13 +260,58 @@ class Polymake < Formula
   end
 
   resource "CPAN::Meta::Check" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/CPAN-Meta-Check-0.014.tar.gz"
-    sha256 "28a0572bfc1c0678d9ce7da48cf521097ada230f96eb3d063fcbae1cfe6a351f"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/CPAN-Meta-Check-0.017.tar.gz"
+    sha256 "0454ab93f12780b1d579df15b5f939e09702e954be82028fadd40e8bc9b0f091"
   end
 
   resource "Dist::CheckConflicts" do
     url "https://cpan.metacpan.org/authors/id/D/DO/DOY/Dist-CheckConflicts-0.11.tar.gz"
     sha256 "ea844b9686c94d666d9d444321d764490b2cde2f985c4165b4c2c77665caedc4"
+  end
+
+  resource "Test::Needs" do
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002010.tar.gz"
+    sha256 "923ffdc78fcba96609753e4bae26b0ba0186893de4a63cd5236e012c7c90e208"
+  end
+
+  resource "ExtUtils::Constant" do
+    url "https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/ExtUtils-Constant-0.25.tar.gz"
+    sha256 "6933d0e963b62281ef7561068e6aecac8c4ac2b476b2bba09ab0b90fbac9d757"
+  end
+
+  resource "CPAN::Meta" do
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/CPAN-Meta-2.150010.tar.gz"
+    sha256 "e4f80f2ec73e0741455f957bbfc992b167ecbfa1c9e23ba358df3b37b86ba3d6"
+  end
+
+  resource "ExtUtils::CBuilder" do
+    url "https://cpan.metacpan.org/authors/id/A/AM/AMBS/ExtUtils-CBuilder-0.280236.tar.gz"
+    sha256 "abc21827eb8a513171bf7fdecefce9945132cb76db945036518291f607b1491f"
+  end
+
+  resource "ExtUtils::Install" do
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-Install-2.22.tar.gz"
+    sha256 "33725bafbed3829d613e4c651c2e1ad120670c7d2ac5cf05f83757fc975d6ff2"
+  end
+
+  resource "ExtUtils::Manifest" do
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/ExtUtils-Manifest-1.73.tar.gz"
+    sha256 "dc5c063dac0b1ad64fa43cda3a51ee66e1952be8da495ddb34b82f9db88fbaf8"
+  end
+
+  resource "ExtUtils::ParseXS" do
+    url "https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/ExtUtils-ParseXS-3.44.tar.gz"
+    sha256 "77effdf31af36ef656f09aa7c15356d238dab6d1afaa7278ae15c1b6bcf86266"
+  end
+
+  resource "Getopt::Long" do
+    url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.54.tar.gz"
+    sha256 "584ba3c99bb2d6b341375212f9b874613f706cfb01cee21b8a2676a98ab985fe"
+  end
+
+  resource "Text::Abbrev" do
+    url "https://cpan.metacpan.org/authors/id/F/FL/FLORA/Text-Abbrev-1.02.tar.gz"
+    sha256 "9cfb8bea2d5806b72fa1a0e1a3367ce662262eaa2701c6a3143a2a8076917433"
   end
 
   resource "Unicode::Normalize" do
@@ -341,8 +320,8 @@ class Polymake < Formula
   end
 
   resource "Class::Method::Modifiers" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Class-Method-Modifiers-2.13.tar.gz"
-    sha256 "ab5807f71018a842de6b7a4826d6c1f24b8d5b09fcce5005a3309cf6ea40fd63"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Class-Method-Modifiers-2.15.tar.gz"
+    sha256 "65cd85bfe475d066e9186f7a8cc636070985b30b0ebb1cde8681cf062c2e15fc"
   end
 
   resource "Role::Tiny" do
@@ -351,8 +330,8 @@ class Polymake < Formula
   end
 
   resource "Sub::Defer" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006006.tar.gz"
-    sha256 "6e4e2af42388fa6d2609e0e82417de7cc6be47223f576592c656c73c7524d89d"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006008.tar.gz"
+    sha256 "94bebd500af55762e83ea2f2bc594d87af828072370c7110c60c238a800d15b2"
   end
 
   resource "Capture::Tiny" do
@@ -360,19 +339,24 @@ class Polymake < Formula
     sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
   end
 
+  resource "Try::Tiny" do
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.31.tar.gz"
+    sha256 "3300d31d8a4075b26d8f46ce864a1d913e0e8467ceeba6655d5d2b2e206c11be"
+  end
+
   resource "Exporter::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002002.tar.gz"
-    sha256 "00f0b95716b18157132c6c118ded8ba31392563d19e490433e9a65382e707101"
+    url "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.006002.tar.gz"
+    sha256 "6f295e2cbffb1dbc15bdb9dadc341671c1e0cd2bdf2d312b17526273c322638d"
   end
 
   resource "B::Hooks::EndOfScope" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz"
-    sha256 "03aa3dfe5d0aa6471a96f43fe8318179d19794d4a640708f0288f9216ec7acc6"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.26.tar.gz"
+    sha256 "39df2f8c007a754672075f95b90797baebe97ada6d944b197a6352709cb30671"
   end
 
   resource "Package::Stash" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.39.tar.gz"
-    sha256 "9165f555112e080493ce0e9129de0886da30b2593fb353a2abd1c76b2d2621b5"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.40.tar.gz"
+    sha256 "5a9722c6d9cb29ee133e5f7b08a5362762a0b5633ff5170642a5b0686e95e066"
   end
 
   resource "Math::Complex" do
@@ -391,8 +375,8 @@ class Polymake < Formula
   end
 
   resource "Digest::SHA" do
-    url "https://cpan.metacpan.org/authors/id/M/MS/MSHELOR/Digest-SHA-6.02.tar.gz"
-    sha256 "2c66a6bea3eac9c210315ac7bf0af3e2e35679c4b65d8bae1ad4be3a58039b06"
+    url "https://cpan.metacpan.org/authors/id/M/MS/MSHELOR/Digest-SHA-6.04.tar.gz"
+    sha256 "ee91f8f7db894ee7c6ee003daac10a99056c4948a674ef46acdbb63c81a4abeb"
   end
 
   resource "threads" do
@@ -401,8 +385,13 @@ class Polymake < Formula
   end
 
   resource "Socket" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Socket-2.032.tar.gz"
-    sha256 "20ecb6ad469f4a13c5c7a891abfa12a3cecfdeccc7140ad57b05be12815dd517"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Socket-2.036.tar.gz"
+    sha256 "1cd8272bccde8098183a60a274b3eda0764cc6984db97f5474b28bebfe2c6b70"
+  end
+
+  resource "Module::Build" do
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4232.tar.gz"
+    sha256 "67c82ee245d94ba06decfa25572ab75fdcd26a9009094289d8f45bc54041771b"
   end
 
   resource "Test::NoWarnings" do
@@ -426,8 +415,8 @@ class Polymake < Formula
   end
 
   resource "Moo" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.005004.tar.gz"
-    sha256 "e3030b80bd554a66f6b3c27fd53b1b5909d12af05c4c11ece9a58f8d1e478928"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.005005.tar.gz"
+    sha256 "fb5a2952649faed07373f220b78004a9c6aba387739133740c1770e9b1f4b108"
   end
 
   resource "PBKDF2::Tiny" do
@@ -440,9 +429,14 @@ class Polymake < Formula
     sha256 "da34ef9029f6849d6026201d49127d054ee6ac4b979c82210315f5721964a96f"
   end
 
+  resource "Test::Fatal" do
+    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.017.tar.gz"
+    sha256 "37dfffdafb84b762efe96b02fb2aa41f37026c73e6b83590db76229697f3c4a6"
+  end
+
   resource "Types::Standard" do
-    url "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Type-Tiny-1.012004.tar.gz"
-    sha256 "75cd06b612d1830ae9f4b22298b506b3ff04518fa7453f487c248cd62a906a2b"
+    url "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Type-Tiny-2.004000.tar.gz"
+    sha256 "697e7f775edfc85f4cf07792d04fd19b09c25285f98f5938e8efc4f74507a128"
   end
 
   resource "namespace::clean" do
@@ -451,18 +445,23 @@ class Polymake < Formula
   end
 
   resource "JSON::MaybeXS" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/JSON-MaybeXS-1.004003.tar.gz"
-    sha256 "5bee3b17ff9dcffd6e99ab8cf7f35747650bfce1dc622e3ad10b85a194462fbf"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/JSON-MaybeXS-1.004004.tar.gz"
+    sha256 "7ca5921306a544f621705dce987fe955b1a6833d0b195c094626a19dca094dba"
   end
 
   resource "Math::BigFloat" do
-    url "https://cpan.metacpan.org/authors/id/P/PJ/PJACKLAM/Math-BigInt-1.999827.tar.gz"
-    sha256 "46e995b696284df8dbbedce0c718261f40692df7e9cda535312cb87999adcae6"
+    url "https://cpan.metacpan.org/authors/id/P/PJ/PJACKLAM/Math-BigInt-1.999838.tar.gz"
+    sha256 "d3c2fb37d412ac8d126452caad5764f02193147261b59c56e652167c41d1e9d5"
   end
 
   resource "Path::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.118.tar.gz"
-    sha256 "32138d8d0f4c9c1a84d2a8f91bc5e913d37d8a7edefbb15a10961bfed560b0fd"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.144.tar.gz"
+    sha256 "f6ea094ece845c952a02c2789332579354de8d410a707f9b7045bd241206487d"
+  end
+
+  resource "Test::Deep" do
+    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.204.tar.gz"
+    sha256 "b6591f6ccdd853c7efc9ff3c5756370403211cffe46047f082b1cd1611a84e5f"
   end
 
   resource "Tie::IxHash" do
@@ -491,13 +490,13 @@ class Polymake < Formula
   end
 
   resource "Compress::Raw::Bzip2" do
-    url "https://cpan.metacpan.org/authors/id/P/PM/PMQS/Compress-Raw-Bzip2-2.101.tar.gz"
-    sha256 "0c9b134fd388290e30e90fc9f63900966127f98e76b054ecd481eb3b5500b8d8"
+    url "https://cpan.metacpan.org/authors/id/P/PM/PMQS/Compress-Raw-Bzip2-2.204.tar.gz"
+    sha256 "ee7b490e67e7e2a7a0e8c1e1aa29a9610066149f46b836921149ad1813f70c69"
   end
 
   resource "Compress::Raw::Zlib" do
-    url "https://cpan.metacpan.org/authors/id/P/PM/PMQS/Compress-Raw-Zlib-2.101.tar.gz"
-    sha256 "9d1b9515e8277c1b007e33fad1fd0f18717d56bf647e3794d61289c45b1aabb2"
+    url "https://cpan.metacpan.org/authors/id/P/PM/PMQS/Compress-Raw-Zlib-2.204.tar.gz"
+    sha256 "f161f4297efadbed79c8b096a75951784fc5ccd3170bd32866a19e5c6876d13f"
   end
 
   resource "Digest::HMAC" do
@@ -526,13 +525,13 @@ class Polymake < Formula
   end
 
   resource "Compress::Zlib" do
-    url "https://cpan.metacpan.org/authors/id/P/PM/PMQS/IO-Compress-2.102.tar.gz"
-    sha256 "d6fa7f9a5beee446452a0fbc43589a0c73fe7e925c075b98628b018048dc72a4"
+    url "https://cpan.metacpan.org/authors/id/P/PM/PMQS/IO-Compress-2.204.tar.gz"
+    sha256 "617784cb8543778681341b18fc67b74735e8b494f32f00814dd22f68ac6af018"
   end
 
   resource "Net::DNS" do
-    url "https://cpan.metacpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.32.tar.gz"
-    sha256 "b890a7b44d573f27cc713caadf1e12eaaa4478a6504d1157194df614316b5b50"
+    url "https://cpan.metacpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.37.tar.gz"
+    sha256 "e672031158942a7016c0480ab3c1fd0d7f81ea5dd650d1ecca7116d5fd348565"
   end
 
   resource "Safe::Isa" do
@@ -551,13 +550,13 @@ class Polymake < Formula
   end
 
   resource "Net::SSLeay" do
-    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.90.tar.gz"
-    sha256 "f8696cfaca98234679efeedc288a9398fcf77176f1f515dbc589ada7c650dc93"
+    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.92.tar.gz"
+    sha256 "47c2f2b300f2e7162d71d699f633dd6a35b0625a00cbda8c50ac01144a9396a9"
   end
 
   resource "Term::ReadLine::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.42.tar.gz"
-    sha256 "3c5f1281da2666777af0f34de0289564e6faa823aea54f3945c74c98e95a5e73"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.45.tar.gz"
+    sha256 "9f4f7abbc69ea58ab7f24992d47f7391bb4aed6fb701fedaeb1a9f1cdc7fab8a"
   end
 
   def install
@@ -584,11 +583,11 @@ class Polymake < Formula
           system "./Build"
           system "./Build", "test"
           system "./Build", "install"
-        when "Net::SSLeay"
+        when "Net::SSLeay" 
           ENV.prepend_create_path "OPENSSL_PREFIX", Formula["openssl@1.1"].opt_prefix
-          system "yes 'n' | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
+          system "yes -N | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5" 
           system "make", "install"
-        when "XML::SAX"
+        when "XML::SAX" 
           system "yes | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
           system "make", "install"
         else
@@ -598,6 +597,19 @@ class Polymake < Formula
       end
     end
 
+    system "./configure", "--prefix=#{prefix}",
+                          "--without-bliss",
+                          "--without-java",
+                          "--without-scip",
+                          "--without-soplex",
+                          "--without-singular",
+                          "--with-brew=bottle",
+                          "CXXFLAGS=-I#{HOMEBREW_PREFIX}/include",
+                          "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib"
+
+    system "ninja", "-C", "build/Opt", "install"
+    bin.env_script_all_files(libexec/"perl5/bin", PERL5LIB: ENV["PERL5LIB"])
+
     resource("Term::ReadLine::Gnu").stage do
       # Prevent the Makefile to try and build universal binaries
       ENV.refurbish_args
@@ -606,25 +618,15 @@ class Polymake < Formula
                      "--libdir=#{Formula["readline"].opt_lib}"
       system "make", "install"
     end
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--without-bliss",
-                          "--without-java",
-                          "--without-scip",
-                          "--without-soplex",
-                          "--without-singular",
-                          "--with-brew=bottle"
-
-    system "ninja", "-C", "build/Opt", "install"
-    bin.env_script_all_files(libexec/"perl5/bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   def caveats
     <<~EOS
       Note: This version comes without support for SVG export.
 
-      If you had previously insalled polymake from another source,
-      then you must start polymake once with
+      If you had any other version of polymake installed on your Mac
+      (both previous versions installed via Homebrew or any other installations)
+      you must start polymake once with
       "polymake --reconfigure"
       to remove the configuration of SVG support from your local
       polymake setup. Afterwards you can use "polymake" as usual.
@@ -633,7 +635,7 @@ class Polymake < Formula
 
   test do
     assert_match "1 23 23 1", shell_output("#{bin}/polymake 'print cube(3)->H_STAR_VECTOR'")
-    command = "LIBRARY_PATH=#{HOMEBREW_PREFIX}/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1"
+    command = "LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1"
     assert_match "", shell_output(command)
     assert_match(/^polymake:  WARNING: Recompiling in .* please be patient\.\.\.$/, shell_output(command))
   end
