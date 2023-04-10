@@ -509,6 +509,11 @@ class Polymake < Formula
     sha256 "849a45a238f8392588b97722c850382c4e6d157cd08a822ddcb9073c73bf1446"
   end
 
+  resource "IO::Socket::SSL" do
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.081.tar.gz"
+    sha256 "07bdf826a8d6b463316d241451c890d1012fa2499a83d8e3d00ce0a584618443"
+  end
+
   resource "Authen::SASL::SASLprep" do
     url "https://cpan.metacpan.org/authors/id/C/CF/CFAERBER/Authen-SASL-SASLprep-1.100.tar.gz"
     sha256 "a4cccc34bb3f53acf0ba78c9fc61af8d156d109d1c10487ba5988a55077d1f70"
@@ -597,6 +602,7 @@ class Polymake < Formula
       end
     end
 
+    system "awk \"/$BrewBase = '\\\/usr\\\/local';/{c++;if(c==2){sub(\\\"$BrewBase = '\\\/usr\\\/local';\\\",\\\"$BrewBase = '#{HOMEBREW_PREFIX}';\\\");c=0}}1\" support/configure.pl > support/configure.pl.tmp && mv support/configure.pl.tmp support/configure.pl"
     system "./configure", "--prefix=#{prefix}",
                           "--without-bliss",
                           "--without-java",
@@ -635,7 +641,7 @@ class Polymake < Formula
 
   test do
     assert_match "1 23 23 1", shell_output("#{bin}/polymake 'print cube(3)->H_STAR_VECTOR'")
-    command = "LIBRARY_PATH=/usr/local/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1"
+    command = "LIBRARY_PATH=#{HOMEBREW_PREFIX}/lib #{bin}/polymake 'my $a=new Array<SparseMatrix<Float>>' 2>&1"
     assert_match "", shell_output(command)
     assert_match(/^polymake:  WARNING: Recompiling in .* please be patient\.\.\.$/, shell_output(command))
   end
