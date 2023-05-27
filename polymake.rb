@@ -603,7 +603,7 @@ class Polymake < Formula
       end
     end
 
-    # the following command is split over four lines due to homebrew's idiotic formatting rules
+    # the following command is split over four lines due to homebrew's weird formatting rules
     # still leads to an error, so no bottles
     system "awk \"/$BrewBase = '/usr/local';/" \
            "{c++;if(c==2){" \
