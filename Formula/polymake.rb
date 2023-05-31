@@ -3,7 +3,7 @@ class Polymake < Formula
   homepage "https://polymake.org/"
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.9.tar.bz2"
   sha256 "bc7335bfca7a3e687b7961b052418ace0e4295f99a86c6cf4832bc2a51b0deea"
-  revision 1
+  revision 2
 
   depends_on "boost"
   depends_on "flint"
@@ -605,9 +605,9 @@ class Polymake < Formula
 
     # the following command is split over four lines due to homebrew's weird formatting rules
     # still leads to an error, so no bottles
-    system "awk \"/$BrewBase = '/usr/local';/" \
+    system "awk \"/$BrewBase = '\\\/usr\\\/local';/" \
            "{c++;if(c==2){" \
-           "sub(\\\"$BrewBase = '/usr/local';\\\",\\\"$BrewBase = '#{HOMEBREW_PREFIX}';\\\");c=0}}1\" " \
+           "sub(\\\"$BrewBase = '\\\/usr\\\/local';\\\",\\\"$BrewBase = '#{HOMEBREW_PREFIX}';\\\");c=0}}1\" " \
            "support/configure.pl > support/configure.pl.tmp"
     mv("support/configure.pl.tmp", "support/configure.pl")
     system "./configure", "--prefix=#{prefix}",
