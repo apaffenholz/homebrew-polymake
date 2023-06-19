@@ -1,10 +1,9 @@
 class Polymake < Formula
   desc "Tool for computations in algorithmic discrete geometry"
   homepage "https://polymake.org/"
-  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.9.tar.bz2"
-  sha256 "bc7335bfca7a3e687b7961b052418ace0e4295f99a86c6cf4832bc2a51b0deea"
-  revision 2
-
+  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.10.tar.bz2"
+  sha256 "295608e3dc797b5646c799153eb33e9fcc0a9e181b0b60b37f872fc2ea1a2d17"
+  
   depends_on "boost"
   depends_on "flint"
   depends_on "gmp"
