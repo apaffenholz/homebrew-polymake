@@ -1,6 +1,8 @@
 # homebrew tap polymake
 
-This is a tap for [polymake](https://polymake.org).
+This is a tap for [polymake](https://polymake.org). 
+
+**Note** that, due to changes in perl, this tap **will not work** for Mac OS 14 and later. You can instead use the new [jll binaries](https://polymake.org/doku.php/install/jll).
 
 ## How do I install these formulae?
 `brew install apaffenholz/polymake/<formula>`
