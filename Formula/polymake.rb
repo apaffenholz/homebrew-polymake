@@ -13,8 +13,8 @@ class Polymake < Formula
   depends_on "mongo-c-driver"
   depends_on "mpfr"
   depends_on "ninja"
-  depends_on "openssl@1.1"
-  depends_on "perl" if MacOS.version == :sonoma || MacOS.version == :ventura || MacOS.version == :monterey
+  depends_on "openssl@3"
+  depends_on "perl"
   depends_on "ppl"
   depends_on "readline"
 
@@ -263,7 +263,7 @@ class Polymake < Formula
           system "./Build", "test"
           system "./Build", "install"
         when "Net::SSLeay"
-          ENV.prepend_create_path "OPENSSL_PREFIX", Formula["openssl@1.1"].opt_prefix
+          ENV.prepend_create_path "OPENSSL_PREFIX", Formula["openssl@3"].opt_prefix
           system "yes -N | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
           system "make", "install"
         when "XML::SAX"
