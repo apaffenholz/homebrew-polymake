@@ -3,7 +3,7 @@
 This is a tap for [polymake](https://polymake.org). 
 
 ## How do I install these formulae?
-`brew install apaffenholz/polymake/<formula>`
+`brew install apaffenholz/polymake/polymake`
 
 Or `brew tap apaffenholz/polymake` and then `brew install polymake`.
 
