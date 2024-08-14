@@ -311,10 +311,10 @@ class Polymake < Formula
 
       If you had any other version of polymake installed on your Mac
       (both previous versions installed via Homebrew or any other installations)
-      you must start polymake once with
+      you should start polymake once with
       "polymake --reconfigure"
-      to remove the configuration of SVG support from your local
-      polymake setup. Afterwards you can use "polymake" as usual.
+      to adjust your local ocnfiguration to the new version.
+      Afterwards you can start polymake as usual.
     EOS
   end
 
