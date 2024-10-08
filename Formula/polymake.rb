@@ -4,7 +4,6 @@ class Polymake < Formula
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.13.tar.bz2"
   sha256 "2bce8b3680ef007c9b760a19821c22f1299403cf5b1c67d1a61d3533e23ac7dc"
 
-
   pour_bottle? only_if: :default_prefix
   pour_bottle? only_if: :clt_installed
 
