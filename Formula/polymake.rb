@@ -1,8 +1,16 @@
 class Polymake < Formula
   desc "Tool for computations in algorithmic discrete geometry"
   homepage "https://polymake.org/"
-  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.13.tar.bz2"
-  sha256 "2bce8b3680ef007c9b760a19821c22f1299403cf5b1c67d1a61d3533e23ac7dc"
+  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.12.tar.bz2"
+  sha256 "18df427e5c165a5b52c72e328de371eab3786626a7ecb2e6049a3de59217f3f8"
+
+  bottle do
+    root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.12"
+    rebuild 1
+    sha256 cellar: :any, arm64_sonoma: "3bf07db7895b6103b4267174bf1725149423e7e3837985f9163e10ae1914e1fb"
+    sha256 cellar: :any, ventura:      "6ee2fb0df61a08ba2d90e1085325a46ea60f18f71a86745f8a58cd89732e31ed"
+    sha256 cellar: :any, monterey:     "f5d46bbfba1fefd4a177316aa7f76f39b8cfeefd1cd63ce1e7592ceefe7d50ed"
+  end
 
   pour_bottle? only_if: :default_prefix
   pour_bottle? only_if: :clt_installed
@@ -307,6 +315,8 @@ class Polymake < Formula
 
   def caveats
     <<~EOS
+      Note: This version comes without support for SVG export.
+
       If you had any other version of polymake installed on your Mac
       (both previous versions installed via Homebrew or any other installations)
       you should start polymake once with
