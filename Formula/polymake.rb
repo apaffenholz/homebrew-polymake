@@ -3,13 +3,7 @@ class Polymake < Formula
   homepage "https://polymake.org/"
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.13.tar.bz2"
   sha256 "2bce8b3680ef007c9b760a19821c22f1299403cf5b1c67d1a61d3533e23ac7dc"
-  revision 1
-
-  bottle do
-    root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.13_1"
-    sha256 cellar: :any, arm64_sonoma: "430004e2c7243eb5ec10b635e408caa8e4fce17bd478990525908181ec4e75d4"
-    sha256 cellar: :any, ventura:      "15764de229456a810cf9923cd2061609a6a31d36d4c5bf3aaa66f8a713994deb"
-  end
+  revision 2
 
   pour_bottle? only_if: :default_prefix
   pour_bottle? only_if: :clt_installed
@@ -25,6 +19,13 @@ class Polymake < Formula
   depends_on "ppl"
   depends_on "readline"
 
+  # patch necessary for released version 4.13 due to left over debug stuff
+  # fixed for next release
+  patch do
+    url "https://gist.githubusercontent.com/apaffenholz/65d337205a1d68e4529a4fdc846082c7/raw/04622d4$
+    sha256 "d035a08f7206e96cf7e2d1f0a4843405322d89de5eb07e60b397ec50a27759d7"
+  end
+  
   resource "Scalar::Util" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.65.tar.gz"
     sha256 "ddc10e6c410ba35374f69365df4c66e32784352bd3cd88a8ad020e41f47a80c4"
