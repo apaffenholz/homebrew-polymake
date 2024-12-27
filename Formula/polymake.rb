@@ -19,13 +19,6 @@ class Polymake < Formula
   depends_on "ppl"
   depends_on "readline"
 
-  # patch necessary for released version 4.13 due to left over debug stuff
-  # fixed for next release
-  patch do
-    url "https://gist.githubusercontent.com/apaffenholz/65d337205a1d68e4529a4fdc846082c7/raw/04622d4$
-    sha256 "d035a08f7206e96cf7e2d1f0a4843405322d89de5eb07e60b397ec50a27759d7"
-  end
-  
   resource "Scalar::Util" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.65.tar.gz"
     sha256 "ddc10e6c410ba35374f69365df4c66e32784352bd3cd88a8ad020e41f47a80c4"
@@ -249,6 +242,13 @@ class Polymake < Formula
   resource "Term::ReadLine::Gnu" do
     url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.46.tar.gz"
     sha256 "b13832132e50366c34feac12ce82837c0a9db34ca530ae5d27db97cf9c964c7b"
+  end
+
+  # patch necessary for released version 4.13 due to left over debug stuff
+  # fixed for next release
+  patch do
+    url "https://gist.githubusercontent.com/apaffenholz/65d337205a1d68e4529a4fdc846082c7/raw/04622d4eebde9734564caa637d17937a57bca4ed/polymake-homebrew-polydb-configure.patch"
+    sha256 "d035a08f7206e96cf7e2d1f0a4843405322d89de5eb07e60b397ec50a27759d7"
   end
 
   def install
