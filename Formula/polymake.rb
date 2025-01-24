@@ -253,8 +253,8 @@ class Polymake < Formula
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
-    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :ventura
+    # /usr/lib/system/libsystem_darwin.dylib
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :ventura
     ENV.prepend_create_path "PERL5LIB", libexec/"perl5/lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"perl5/lib/perl5/darwin-thread-multi-2level"
 
