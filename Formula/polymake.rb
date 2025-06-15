@@ -3,14 +3,7 @@ class Polymake < Formula
   homepage "https://polymake.org/"
   url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.13.tar.bz2"
   sha256 "2bce8b3680ef007c9b760a19821c22f1299403cf5b1c67d1a61d3533e23ac7dc"
-  revision 4
-
-  bottle do
-    root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.13_4"
-    sha256 cellar: :any, arm64_sequoia: "a1be81612feb0848138f2d0fa57d738be9d17996cb12b7b4e412ae1f56a977d1"
-    sha256 cellar: :any, arm64_sonoma:  "a7202fb482ff4a91d23dd3fe90eeef3e16b24d64286d8b8cb3c3f0e5754b3be7"
-    sha256 cellar: :any, ventura:       "4db7bfe8f1e6d8c4b615e7a0a1d25dd9c77e50d6296f3e2d09ef553174d7a48a"
-  end
+  revision 5
 
   pour_bottle? only_if: :default_prefix
   pour_bottle? only_if: :clt_installed
@@ -18,7 +11,7 @@ class Polymake < Formula
   depends_on "boost"
   depends_on "flint"
   depends_on "gmp"
-  depends_on "mongo-c-driver"
+  depends_on "mongo-c-driver@1"
   depends_on "mpfr"
   depends_on "ninja"
   depends_on "openssl@3"
@@ -258,6 +251,13 @@ class Polymake < Formula
     sha256 "d035a08f7206e96cf7e2d1f0a4843405322d89de5eb07e60b397ec50a27759d7"
   end
 
+  # patch necessary for released version 4.13 and recent clang
+  # should not harm older versions, so we apply it unconditionally
+  patch do
+    url "https://gist.githubusercontent.com/apaffenholz/11c770bcee4667908db47515217c21a3/raw/6ae2ab0b0cec5c7875691891dcd7241c458e13a7/prepare_for_recent_clang.patch"
+    sha256 "72a11b219b0e525950a5df52ee20add90be8854e84130ab99813ec6d7f132e10"
+  end
+
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib
@@ -300,10 +300,10 @@ class Polymake < Formula
                           "--without-soplex",
                           "--without-singular",
                           "--with-brew=bottle",
-                          "--with-mongoc-lib=#{HOMEBREW_PREFIX}/lib/",
-                          "--with-mongoc-include=#{HOMEBREW_PREFIX}/include/libmongoc-1.0/",
-                          "--with-bson-lib=#{HOMEBREW_PREFIX}/lib/",
-                          "--with-bson-include=#{HOMEBREW_PREFIX}/include/libbson-1.0/",
+                          "--with-mongoc-lib=#{HOMEBREW_PREFIX}/opt/mongo-c-driver@1/lib/",
+                          "--with-mongoc-include=#{HOMEBREW_PREFIX}/opt/mongo-c-driver@1/include/libmongoc-1.0/",
+                          "--with-bson-lib=#{HOMEBREW_PREFIX}/opt/mongo-c-driver@1/lib/",
+                          "--with-bson-include=#{HOMEBREW_PREFIX}/opt/mongo-c-driver@1/include/libbson-1.0/",
                           "CXXFLAGS=-I#{HOMEBREW_PREFIX}/include",
                           "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib"
 
