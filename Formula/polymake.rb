@@ -1,16 +1,8 @@
 class Polymake < Formula
   desc "Tool for computations in algorithmic discrete geometry"
   homepage "https://polymake.org/"
-  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.13.tar.bz2"
-  sha256 "2bce8b3680ef007c9b760a19821c22f1299403cf5b1c67d1a61d3533e23ac7dc"
-  revision 6
-
-  bottle do
-    root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.13_6"
-    sha256 cellar: :any, arm64_sequoia: "3a9348c01ae853752553305ab3f74a080a8ff45c5b86267e660e8c2b16c53da4"
-    sha256 cellar: :any, arm64_sonoma:  "3850fcb7acc3c208dd2d28174ba75c8201dcf707d91bbb8b227b901bd188626e"
-    sha256 cellar: :any, ventura:       "b9543c8e9c1507b2b1326d5d5025ca418a7570bbab48b9563483bf1a432a56fe"
-  end
+  url "https://polymake.org/lib/exe/fetch.php/download/polymake-4.14.tar.bz2"
+  sha256 "d9e71420c65adda127d7bf06e5c888562f3358c13fc04955954ccaca8f968ec6"
 
   pour_bottle? only_if: :default_prefix
   pour_bottle? only_if: :clt_installed
@@ -27,8 +19,8 @@ class Polymake < Formula
   depends_on "readline"
 
   resource "Scalar::Util" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.65.tar.gz"
-    sha256 "ddc10e6c410ba35374f69365df4c66e32784352bd3cd88a8ad020e41f47a80c4"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.69.tar.gz"
+    sha256 "49108037dc31ba4953aa8be57c1c72f3e922dde1fa328f1eb39a329f1e6314fc"
   end
 
   resource "File::Path" do
@@ -47,8 +39,8 @@ class Polymake < Formula
   end
 
   resource "parent" do
-    url "https://cpan.metacpan.org/authors/id/C/CO/CORION/parent-0.241.tar.gz"
-    sha256 "b10b3960ab3997dab7571ffe975ba462d979d086450740a1e08b3959e75128fe"
+    url "https://cpan.metacpan.org/authors/id/C/CO/CORION/parent-0.244.tar.gz"
+    sha256 "149a65f019909c289714b57fb5c7cadba593e7b86ccf25cb49f7e54a2a1af1ce"
   end
 
   resource "XSLoader" do
@@ -71,9 +63,19 @@ class Polymake < Formula
     sha256 "e1e96b24a076792fde52154789fe4b76034b9ad39c8a1a819ead77d50d5f1817"
   end
 
+  resource "Term::Table" do
+    url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.024.tar.gz"
+    sha256 "52288538c3b0514bcd2b61f645686c256619e56a421ae992e2b76d31927c4ece"
+  end
+
+  resource "Time::HiRes" do
+    url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Time-HiRes-1.9764.tar.gz"
+    sha256 "9841be5587bfb7cd1f2fe267b5e5ac04ce25e79d5cc77e5ef9a9c5abd101d7b1"
+  end
+
   resource "Test::More" do
-    url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302200.tar.gz"
-    sha256 "675630d0ea1e18f531356e5358e6a005c5ddddf19d6532a66d289a141ee6abdb"
+    url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302214.tar.gz"
+    sha256 "6077ecc35f37b11b3b75df2d0ba1b9ca541f1dc24b2be8e15b6e91f78e2e03fc"
   end
 
   resource "Carp" do
@@ -102,8 +104,8 @@ class Polymake < Formula
   end
 
   resource "Pod::Simple" do
-    url "https://cpan.metacpan.org/authors/id/K/KH/KHW/Pod-Simple-3.45.tar.gz"
-    sha256 "8483bb95cd3e4307d66def092a3779f843af772482bfdc024e3e00d0c4db0cfa"
+    url "https://cpan.metacpan.org/authors/id/K/KH/KHW/Pod-Simple-3.47.tar.gz"
+    sha256 "ab3e3845337b78ee14b50fdbc68197c71f5ea66ebdde0870dee4e642c305c514"
   end
 
   resource "Data::Dumper" do
@@ -122,8 +124,8 @@ class Polymake < Formula
   end
 
   resource "ExtUtils::MakeMaker" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.70.tar.gz"
-    sha256 "f108bd46420d2f00d242825f865b0f68851084924924f92261d684c49e3e7a74"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.76.tar.gz"
+    sha256 "30bcfd75fec4d512e9081c792f7cb590009d9de2fe285ffa8eec1be35a5ae7ca"
   end
 
   resource "Term::ReadKey" do
@@ -157,8 +159,8 @@ class Polymake < Formula
   end
 
   resource "version" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/version-0.9932.tar.gz"
-    sha256 "e7b5e8fcb8dfd1d6147b931a382e9dc377b3485ade18bea342dad11226be6f7f"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/version-0.9933.tar.gz"
+    sha256 "dc07d9388ca3d3f67146312904bcdb35fe416bb30056158f80df3281a94fae58"
   end
 
   resource "lib" do
@@ -167,8 +169,8 @@ class Polymake < Formula
   end
 
   resource "Module::CoreList" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Module-CoreList-5.20240720.tar.gz"
-    sha256 "9a08d552c01edd1358609897b5469dbe0cd8bc8c73510ce54b989d5e0c3e448f"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Module-CoreList-5.20250720.tar.gz"
+    sha256 "f1f560ec18b071d80c12d3a1bec5d6e6066c812550376104c108463a3a3841e9"
   end
 
   resource "Module::Load" do
@@ -197,8 +199,8 @@ class Polymake < Formula
   end
 
   resource "Test::Harness" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.48.tar.gz"
-    sha256 "e73ff89c81c1a53f6baeef6816841b89d3384403ad97422a7da9d1eeb20ef9c5"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.52.tar.gz"
+    sha256 "8fe65cfc0261ed3c8a4395f0524286f5719669fe305f9b03b16cf3684d62cd70"
   end
 
   resource "IPC::Cmd" do
@@ -237,8 +239,8 @@ class Polymake < Formula
   end
 
   resource "Socket" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Socket-2.038.tar.gz"
-    sha256 "563d11731ff44307fa2779a6958fd2d2f6643fbd9a3174cbf350228b159681f8"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Socket-2.040.tar.gz"
+    sha256 "be0102fdcea8d43f1b02ef2ef94345ac4bbc7b6c66ece2ddd1a3593d8371ba1b"
   end
 
   resource "Net::SSLeay" do
@@ -247,27 +249,13 @@ class Polymake < Formula
   end
 
   resource "Term::ReadLine::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.46.tar.gz"
-    sha256 "b13832132e50366c34feac12ce82837c0a9db34ca530ae5d27db97cf9c964c7b"
-  end
-
-  # patch necessary for released version 4.13 due to left over debug stuff
-  # fixed for next release
-  patch do
-    url "https://gist.githubusercontent.com/apaffenholz/65d337205a1d68e4529a4fdc846082c7/raw/04622d4eebde9734564caa637d17937a57bca4ed/polymake-homebrew-polydb-configure.patch"
-    sha256 "d035a08f7206e96cf7e2d1f0a4843405322d89de5eb07e60b397ec50a27759d7"
-  end
-
-  # patch necessary for released version 4.13 and recent clang
-  # should not harm older versions, so we apply it unconditionally
-  patch do
-    url "https://gist.githubusercontent.com/apaffenholz/11c770bcee4667908db47515217c21a3/raw/6ae2ab0b0cec5c7875691891dcd7241c458e13a7/prepare_for_recent_clang.patch"
-    sha256 "72a11b219b0e525950a5df52ee20add90be8854e84130ab99813ec6d7f132e10"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.47.tar.gz"
+    sha256 "3b07ac8a9b494c50aa87a40dccab3f879b92eb9527ac0f2ded5d4743d166b649"
   end
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
-    # /usr/lib/system/libsystem_darwin.dylib
+    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :ventura
     ENV.prepend_create_path "PERL5LIB", libexec/"perl5/lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"perl5/lib/perl5/darwin-thread-multi-2level"
@@ -285,7 +273,7 @@ class Polymake < Formula
           system "./Build", "test"
           system "./Build", "install"
         when "Net::SSLeay"
-          ENV.prepend_create_path "OPENSSL_PREFIX", Formula["openssl@3"].opt_prefix
+          ENV.prepend_create_path "OPENSSL_PREFIX", Formula["openssl@1.1"].opt_prefix
           system "yes -N | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
           system "make", "install"
         when "XML::SAX"
