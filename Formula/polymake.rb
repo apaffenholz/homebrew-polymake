@@ -273,7 +273,7 @@ class Polymake < Formula
           system "./Build", "test"
           system "./Build", "install"
         when "Net::SSLeay"
-          ENV.prepend_create_path "OPENSSL_PREFIX", Formula["openssl@1.1"].opt_prefix
+          ENV.prepend_create_path "OPENSSL_PREFIX", Formula["openssl@3"].opt_prefix
           system "yes -N | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
           system "make", "install"
         when "XML::SAX"
