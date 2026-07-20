@@ -279,7 +279,7 @@ class Polymake < Formula
           system "./Build", "test"
           system "./Build", "install"
         when "Net::SSLeay"
-          ENV.prepend_create_path "OPENSSL_PREFIX", formula_opt_prefix("openssl@3")
+          ENV.prepend_create_path "OPENSSL_PREFIX", #{formula_opt_prefix("openssl@3")}
           system "yes -N | perl Makefile.PL INSTALL_BASE=#{libexec}/perl5"
           system "make", "install"
         when "XML::SAX"
@@ -315,8 +315,8 @@ class Polymake < Formula
       # Prevent the Makefile to try and build universal binaries
       ENV.refurbish_args
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}/perl5",
-                     '--includedir=formula_opt_include("readline")',
-                     '--libdir=formula_opt_lib("readline")'
+                     '--includedir=#{formula_opt_include("readline")}',
+                     '--libdir=#{formula_opt_lib("readline")}'
       system "make", "install"
     end
   end
