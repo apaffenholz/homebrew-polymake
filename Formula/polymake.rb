@@ -305,7 +305,7 @@ class Polymake < Formula
                           "--with-mongoc-include=#{HOMEBREW_PREFIX}/opt/mongo-c-driver@1/include/libmongoc-1.0/",
                           "--with-bson-lib=#{HOMEBREW_PREFIX}/opt/mongo-c-driver@1/lib/",
                           "--with-bson-include=#{HOMEBREW_PREFIX}/opt/mongo-c-driver@1/include/libbson-1.0/",
-                          "CXXFLAGS=-I#{HOMEBREW_PREFIX}/include",
+                          "CXXFLAGS=-I#{HOMEBREW_PREFIX}/include -Wno-error=invalid-specialization",
                           "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib"
 
     system "ninja", "-C", "build/Opt", "install"
