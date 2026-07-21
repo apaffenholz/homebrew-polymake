@@ -298,8 +298,8 @@ class Polymake < Formula
     system "sed -i\"\" -e s/\\'\\\#{HOMEBREW_PREFIX}\\'/\\\"\\$ENV{HOMEBREW_PREFIX}\\\"/ ./support/configure.pl"
     ENV["HOMEBREW_PREFIX"]="#{HOMEBREW_PREFIX}/"
     if OS.mac? && MacOS.version == :tahoe
-      ENV["CC"] = "gcc-16"
-      ENV["CXX"] = "g++-16"
+      ENV["CC"] = "gcc-15"
+      ENV["CXX"] = "g++-15"
     end
     system "./configure", "--prefix=#{prefix}",
                           "--without-bliss",
