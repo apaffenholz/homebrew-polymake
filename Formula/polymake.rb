@@ -297,7 +297,7 @@ class Polymake < Formula
 
     system "sed -i\"\" -e s/\\'\\\#{HOMEBREW_PREFIX}\\'/\\\"\\$ENV{HOMEBREW_PREFIX}\\\"/ ./support/configure.pl"
     ENV["HOMEBREW_PREFIX"]="#{HOMEBREW_PREFIX}/"
-    prepend_path "PATH", formula_opt_bin("llvm") if OS.mac? && MacOS.version == :tahoe
+    ENV.prepend_path "PATH", formula_opt_bin("llvm") if OS.mac? && MacOS.version == :tahoe
     system "./configure", "--prefix=#{prefix}",
                           "--without-bliss",
                           "--without-java",
