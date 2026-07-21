@@ -18,9 +18,6 @@ class Polymake < Formula
   depends_on "perl"
   depends_on "ppl"
   depends_on "readline"
-  on_macos do
-    depends_on "llvm" if MacOS.version == :tahoe
-  end
 
   resource "Scalar::Util" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.70.tar.gz"
@@ -297,7 +294,6 @@ class Polymake < Formula
 
     system "sed -i\"\" -e s/\\'\\\#{HOMEBREW_PREFIX}\\'/\\\"\\$ENV{HOMEBREW_PREFIX}\\\"/ ./support/configure.pl"
     ENV["HOMEBREW_PREFIX"]="#{HOMEBREW_PREFIX}/"
-    ENV.prepend_path "PATH", formula_opt_bin("llvm") if OS.mac? && MacOS.version == :tahoe
     system "./configure", "--prefix=#{prefix}",
                           "--without-bliss",
                           "--without-java",
