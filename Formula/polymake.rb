@@ -18,6 +18,9 @@ class Polymake < Formula
   depends_on "perl"
   depends_on "ppl"
   depends_on "readline"
+  on_macos do
+    depends_on "gcc" if MacOS.version == :tahoe
+  end
 
   resource "Scalar::Util" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.70.tar.gz"
@@ -306,7 +309,9 @@ class Polymake < Formula
                           "--with-bson-lib=#{HOMEBREW_PREFIX}/opt/mongo-c-driver@1/lib/",
                           "--with-bson-include=#{HOMEBREW_PREFIX}/opt/mongo-c-driver@1/include/libbson-1.0/",
                           "CXXFLAGS=-I#{HOMEBREW_PREFIX}/include -Wno-error=invalid-specialization",
-                          "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib"
+                          "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib",
+                          "CC=#{ENV.cc}",
+                          "CXX=#{ENV.cxx}"
 
     system "ninja", "-C", "build/Opt", "install"
     bin.env_script_all_files(libexec/"perl5/bin", PERL5LIB: ENV["PERL5LIB"])
