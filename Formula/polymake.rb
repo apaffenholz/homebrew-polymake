@@ -5,6 +5,12 @@ class Polymake < Formula
   sha256 "5a50dc9ef35c0c1da032dd9ada5feec5ed7c5dde58325bc4db72c9da3e68a687"
   revision 2
 
+  bottle do
+    root_url "https://github.com/apaffenholz/homebrew-polymake/releases/download/polymake-4.15_2"
+    sha256 cellar: :any, arm64_sequoia: "023fadeea9f4173f48b1617948a03d1d5e583406c85558d10cdb9491ab1afa77"
+    sha256 cellar: :any, arm64_sonoma:  "b222a1dc8f8a12e668875100111dd4f091cb7eb64a88003e0f0ee9be399c5646"
+  end
+
   pour_bottle? only_if: :default_prefix
   pour_bottle? only_if: :clt_installed
 
