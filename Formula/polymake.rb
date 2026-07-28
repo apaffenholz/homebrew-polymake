@@ -19,7 +19,7 @@ class Polymake < Formula
   depends_on "ppl"
   depends_on "readline"
   on_macos do
-    depends_on "gcc@13" if MacOS.version == :tahoe
+    depends_on "gcc@12" if MacOS.version == :tahoe
   end
 
   resource "Scalar::Util" do
@@ -298,8 +298,8 @@ class Polymake < Formula
     system "sed -i\"\" -e s/\\'\\\#{HOMEBREW_PREFIX}\\'/\\\"\\$ENV{HOMEBREW_PREFIX}\\\"/ ./support/configure.pl"
     ENV["HOMEBREW_PREFIX"]="#{HOMEBREW_PREFIX}/"
     if OS.mac? && MacOS.version == :tahoe
-      ENV["CC"] = "gcc-13"
-      ENV["CXX"] = "g++-13"
+      ENV["CC"] = "gcc-12"
+      ENV["CXX"] = "g++-12"
     end
     system "./configure", "--prefix=#{prefix}",
                           "--without-bliss",
